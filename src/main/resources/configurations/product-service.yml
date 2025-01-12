@@ -15,7 +15,12 @@ spring:
     baseline-on-migrate: true
     enabled: true
     baseline-description: "init"
-    baseline-version: 0
+    baseline-version: 1
+    locations: classpath:db/migration
+    clean-disabled: true
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
 
+logging:
+  level:
+    org.flywaydb.core: DEBUG

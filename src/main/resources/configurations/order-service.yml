@@ -16,9 +16,11 @@ spring:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      retries: 10
+      acks: all
       properties:
+        enable.idempotence: true
         spring.json.type.mapping: orderConfirmation:com.cheikh.ecommerce.kafka.OrderConfirmation
-
 application:
   config:
     customer-url: http://localhost:8222/api/v1/customers
